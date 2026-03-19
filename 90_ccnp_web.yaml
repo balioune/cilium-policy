@@ -1,0 +1,22 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumClusterwideNetworkPolicy
+metadata:
+  name: "l4-rule-ingress"
+spec:
+  endpointSelector:
+    matchLabels:
+      io.cilium.k8s.namespace.labels.cagip: metier
+  enableDefaultDeny:
+    egress: false
+  ingress:
+    - toPorts:
+      - ports:
+        - port: "80"
+          protocol: TCP
+  egress: 
+    - toEntities:
+      - cluster
+      #- remote-node
+    #- toCIDRSet:
+    #  - cidr: 192.168.100.10/32
+    #- {}

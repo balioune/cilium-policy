@@ -1,0 +1,9 @@
+https://docs.cilium.io/en/stable/security/policy/index.html
+https://docs.cilium.io/en/stable/observability/hubble/hubble-cli/
+https://docs.cilium.io/en/latest/security/policy/intro/
+# CCNP
+- egress {} empeche les namespace metier de communiquer avec les ns infra
+- la règles 90* evite de poser de ccnp sur les ns infra
+- il faut autoriser les flux sortant vers les endpoint infra du cluster
+
+oc -n cilium exec -it cilium-njwjc -- hubble observe -f  --verdict DROPPED

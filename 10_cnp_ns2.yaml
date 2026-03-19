@@ -1,0 +1,20 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: webicmp-policy
+  namespace: ns1
+spec:
+  endpointSelector:
+    matchLabels: {}
+  enableDefaultDeny:
+    egress: false
+  egress:
+    - toCIDRSet:
+      - cidr: 192.168.100.10/32
+      - cidr: 192.168.100.254/32
+      toPorts:
+      - ports:
+        - port: "80"
+          protocol: TCP
+  #egress:
+  #  - {}
