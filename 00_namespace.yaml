@@ -10,5 +10,5 @@ kind: Namespace
 metadata:
   name: ns2
   labels:
-    app: metrier
+    app: metier
 
